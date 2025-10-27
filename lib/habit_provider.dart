@@ -13,7 +13,7 @@ class HabitProvider extends ChangeNotifier {
     Habit(
       name: 'Morning Walk',
       description: 'Go for a 30-minute walk',
-      isCompletedToday: true,
+      isCompletedToday: false,
       streak: 0,
       lastCompletedAt: DateTime.now(),
     ),

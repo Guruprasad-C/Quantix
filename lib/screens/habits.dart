@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:habit_app/habit_provider.dart';
+import 'package:habit_app/widgets/habit_drawer.dart';
 import 'package:habit_app/widgets/habit_view.dart';
 import 'package:provider/provider.dart';
 
@@ -17,7 +18,7 @@ class _HabitsScreenState extends State<HabitsScreen> {
       builder: (context, value, child) => Scaffold(
         appBar: AppBar(
           title: Text('Habit Tracker', style: TextStyle(fontSize: 25)),
-          backgroundColor: const Color.fromARGB(255, 137, 243, 199),
+          backgroundColor: Colors.greenAccent,
           foregroundColor: Colors.white,
           actions: [
             IconButton(
@@ -29,6 +30,7 @@ class _HabitsScreenState extends State<HabitsScreen> {
           ],
         ),
         backgroundColor: Color(0xFFE8F5E9),
+        drawer: HabitDrawer(),
         body: HabitView(habits: value.habits),
       ),
     );

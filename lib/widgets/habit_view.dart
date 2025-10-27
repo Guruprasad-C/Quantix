@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:habit_app/habit_provider.dart';
 import 'package:habit_app/models/habit.dart';
+import 'package:habit_app/screens/habit_add.dart';
 import 'package:habit_app/widgets/habit_viewer.dart';
 import 'package:provider/provider.dart';
 
@@ -31,7 +32,8 @@ class HabitView extends StatelessWidget {
               borderRadius: BorderRadius.circular(5),
             ),
             SizedBox(height: 15),
-            Expanded(
+            Flexible(
+              flex: 2,
               child: ListView.builder(
                 itemCount: habits.length,
                 itemBuilder: (context, index) =>
@@ -39,7 +41,15 @@ class HabitView extends StatelessWidget {
               ),
             ),
             Center(
-              child: TextButton(onPressed: () {}, child: Text('Add Habit')),
+              child: TextButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (ctx) => HabitAdd()),
+                  );
+                },
+                child: Text('Add Habit'),
+              ),
             ),
           ],
         ),
