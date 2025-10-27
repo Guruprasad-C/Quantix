@@ -18,7 +18,7 @@ class HabitProvider extends ChangeNotifier {
       lastCompletedAt: DateTime.now(),
     ),
   ];
-  int streaks = 0;
+  int streaks = 1;
 
   void addHabit(Habit habit) {
     habits.add(habit);
