@@ -15,7 +15,7 @@ class HabitDrawer extends StatelessWidget {
             decoration: BoxDecoration(color: Colors.greenAccent),
             child: Row(
               children: [
-                Icon(Icons.face, size: 40),
+                Icon(Icons.face, size: 38),
                 SizedBox(width: 15),
                 Text(
                   'Habit Stats',

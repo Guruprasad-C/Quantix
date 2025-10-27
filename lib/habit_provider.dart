@@ -52,4 +52,14 @@ class HabitProvider extends ChangeNotifier {
     habit.isCompletedToday = val;
     notifyListeners();
   }
+
+  void updateHabit(Habit habit, int val) {
+    habits[val] = habit;
+    notifyListeners();
+  }
+
+  void remove(int val) {
+    habits.removeAt(val);
+    notifyListeners();
+  }
 }
