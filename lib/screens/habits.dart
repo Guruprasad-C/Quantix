@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:habit_app/habit_provider.dart';
+import 'package:habit_app/widgets/habit_view.dart';
+import 'package:provider/provider.dart';
 
 class HabitsScreen extends StatefulWidget {
   const HabitsScreen({super.key});
@@ -10,6 +13,24 @@ class HabitsScreen extends StatefulWidget {
 class _HabitsScreenState extends State<HabitsScreen> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(appBar: AppBar(title: Text('Habits')));
+    return Consumer<HabitProvider>(
+      builder: (context, value, child) => Scaffold(
+        appBar: AppBar(
+          title: Text('Habit Tracker', style: TextStyle(fontSize: 25)),
+          backgroundColor: const Color.fromARGB(255, 137, 243, 199),
+          foregroundColor: Colors.white,
+          actions: [
+            IconButton(
+              onPressed: () {
+                value.resetHabit();
+              },
+              icon: Icon(Icons.refresh),
+            ),
+          ],
+        ),
+        backgroundColor: Color(0xFFE8F5E9),
+        body: HabitView(habits: value.habits),
+      ),
+    );
   }
 }
