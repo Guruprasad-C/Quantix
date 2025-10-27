@@ -62,6 +62,7 @@ class _HabitAddState extends State<HabitAdd> {
             Navigator.pop(context);
           },
           backgroundColor: Colors.greenAccent,
+          foregroundColor: Colors.white,
           shape: CircleBorder(),
           child: Icon(Icons.done, size: 30),
         ),

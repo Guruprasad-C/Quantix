@@ -18,6 +18,7 @@ class HabitProvider extends ChangeNotifier {
       lastCompletedAt: DateTime.now(),
     ),
   ];
+  int streaks = 0;
 
   void addHabit(Habit habit) {
     habits.add(habit);
@@ -25,6 +26,7 @@ class HabitProvider extends ChangeNotifier {
   }
 
   void resetHabit() {
+    streaks++;
     for (Habit habit in habits) {
       if (habit.isCompletedToday) {
         habit.streak++;

@@ -5,7 +5,7 @@ class Habit {
     required this.name,
     required this.description,
     this.isCompletedToday = false,
-    this.streak = 0,
+    this.streak = 1,
     this.lastCompletedAt,
   }) : id = Uuid().v4();
 

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:habit_app/habit_provider.dart';
 import 'package:habit_app/models/habit.dart';
-import 'package:habit_app/screens/habit_add.dart';
 import 'package:habit_app/widgets/habit_viewer.dart';
 import 'package:provider/provider.dart';
 
@@ -38,17 +37,6 @@ class HabitView extends StatelessWidget {
                 itemCount: habits.length,
                 itemBuilder: (context, index) =>
                     HabitViewer(habit: habits[index]),
-              ),
-            ),
-            Center(
-              child: TextButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (ctx) => HabitAdd()),
-                  );
-                },
-                child: Text('Add Habit'),
               ),
             ),
           ],

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:habit_app/habit_provider.dart';
+import 'package:habit_app/screens/habit_add.dart';
+import 'package:habit_app/screens/stats_screen.dart';
 import 'package:habit_app/widgets/habit_drawer.dart';
 import 'package:habit_app/widgets/habit_view.dart';
 import 'package:provider/provider.dart';
@@ -12,6 +14,17 @@ class HabitsScreen extends StatefulWidget {
 }
 
 class _HabitsScreenState extends State<HabitsScreen> {
+  void setScreen(String active) {
+    if (active == "stats") {
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (ctx) => StatsScreen()),
+      );
+    } else {
+      Navigator.pop(context);
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Consumer<HabitProvider>(
@@ -30,8 +43,20 @@ class _HabitsScreenState extends State<HabitsScreen> {
           ],
         ),
         backgroundColor: Color(0xFFE8F5E9),
-        drawer: HabitDrawer(),
+        drawer: HabitDrawer(setScreen: setScreen),
         body: HabitView(habits: value.habits),
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (ctx) => HabitAdd()),
+            );
+          },
+          shape: CircleBorder(),
+          backgroundColor: Colors.greenAccent,
+          foregroundColor: Colors.white,
+          child: Icon(Icons.add, size: 35),
+        ),
       ),
     );
   }

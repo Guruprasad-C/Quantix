@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
 class HabitDrawer extends StatelessWidget {
-  const HabitDrawer({super.key});
+  const HabitDrawer({super.key, required this.setScreen});
+
+  final void Function(String active) setScreen;
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +30,9 @@ class HabitDrawer extends StatelessWidget {
               style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500),
             ),
             leading: Icon(Icons.favorite_border, size: 27),
-            onTap: () {},
+            onTap: () {
+              setScreen('habits');
+            },
           ),
           ListTile(
             title: Text(
@@ -36,7 +40,9 @@ class HabitDrawer extends StatelessWidget {
               style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500),
             ),
             leading: Icon(Icons.query_stats_sharp, size: 27),
-            onTap: () {},
+            onTap: () {
+              setScreen('stats');
+            },
           ),
         ],
       ),

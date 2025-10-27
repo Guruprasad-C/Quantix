@@ -21,11 +21,11 @@ class HabitViewer extends StatelessWidget {
             },
             title: Text(
               habit.name,
-              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500),
             ),
             subtitle: Text(
               habit.description,
-              style: TextStyle(fontWeight: FontWeight.w400),
+              style: TextStyle(fontWeight: FontWeight.w300),
               overflow: TextOverflow.ellipsis,
               maxLines: 1,
             ),
