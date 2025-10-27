@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:habit_app/habit_provider.dart';
 import 'package:habit_app/models/habit.dart';
+import 'package:provider/provider.dart';
 
 class HabitViewer extends StatelessWidget {
   const HabitViewer({super.key, required this.habit});
@@ -8,11 +10,28 @@ class HabitViewer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      child: Row(
-        children: [
-          Column(children: [Text(habit.name), Text(habit.description)]),
-        ],
+    return Consumer<HabitProvider>(
+      builder: (context, value, child) => Card(
+        child: Padding(
+          padding: const EdgeInsets.all(12.0),
+          child: CheckboxListTile(
+            value: habit.isCompletedToday,
+            onChanged: (val) {
+              value.update(habit, val!);
+            },
+            title: Text(
+              habit.name,
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+            ),
+            subtitle: Text(
+              habit.description,
+              style: TextStyle(fontWeight: FontWeight.w400),
+              overflow: TextOverflow.ellipsis,
+              maxLines: 1,
+            ),
+            activeColor: Colors.green,
+          ),
+        ),
       ),
     );
   }

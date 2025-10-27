@@ -7,14 +7,14 @@ class HabitProvider extends ChangeNotifier {
       name: 'Drink Water',
       description: 'Drink at least 8 glasses of water',
       isCompletedToday: false,
-      streak: 3,
+      streak: 0,
       lastCompletedAt: DateTime.now(),
     ),
     Habit(
       name: 'Morning Walk',
       description: 'Go for a 30-minute walk',
       isCompletedToday: true,
-      streak: 7,
+      streak: 0,
       lastCompletedAt: DateTime.now(),
     ),
   ];
@@ -44,5 +44,10 @@ class HabitProvider extends ChangeNotifier {
     if (habits.isEmpty) return 0;
     int com = habits.where((m) => m.isCompletedToday).length;
     return com;
+  }
+
+  void update(Habit habit, bool val) {
+    habit.isCompletedToday = val;
+    notifyListeners();
   }
 }

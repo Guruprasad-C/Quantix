@@ -19,7 +19,7 @@ class HabitView extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              '${value.done} out of $len done',
+              '${value.done} of $len done',
               style: TextStyle(fontSize: 23, fontWeight: FontWeight.w500),
             ),
             SizedBox(height: 20),
@@ -30,12 +30,16 @@ class HabitView extends StatelessWidget {
               minHeight: 10,
               borderRadius: BorderRadius.circular(5),
             ),
+            SizedBox(height: 15),
             Expanded(
               child: ListView.builder(
                 itemCount: habits.length,
                 itemBuilder: (context, index) =>
                     HabitViewer(habit: habits[index]),
               ),
+            ),
+            Center(
+              child: TextButton(onPressed: () {}, child: Text('Add Habit')),
             ),
           ],
         ),
